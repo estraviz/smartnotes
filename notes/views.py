@@ -10,19 +10,19 @@ from .models import Notes
 
 class NotesDeleteView(DeleteView):
     model = Notes
-    success_url = '/smart/notes'
-    template_name = 'notes/notes_delete.html'
+    success_url = "/smart/notes"
+    template_name = "notes/notes_delete.html"
 
 
 class NotesUpdateView(UpdateView):
     model = Notes
-    success_url = '/smart/notes'
+    success_url = "/smart/notes"
     form_class = NotesForm
 
 
 class NotesCreateView(CreateView):
     model = Notes
-    success_url = '/smart/notes'
+    success_url = "/smart/notes"
     form_class = NotesForm
 
     def form_valid(self, form: BaseModelForm) -> HttpResponseRedirect:
@@ -34,8 +34,8 @@ class NotesCreateView(CreateView):
 
 class NotesListView(LoginRequiredMixin, ListView):
     model = Notes
-    context_object_name = 'notes'
-    template_name = 'notes/notes_list.html'
+    context_object_name = "notes"
+    template_name = "notes/notes_list.html"
     login_url = "/admin"
 
     def get_queryset(self):
@@ -44,4 +44,4 @@ class NotesListView(LoginRequiredMixin, ListView):
 
 class NotesDetailView(DetailView):
     model = Notes
-    context_object_name ='note'
+    context_object_name = "note"
